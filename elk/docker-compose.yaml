@@ -2,7 +2,7 @@ services:
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.14.3
-    container_name: krushna-jagdale-
+    container_name: krushna-jagdale-elasticsearch
 
     env_file:
       - .env
