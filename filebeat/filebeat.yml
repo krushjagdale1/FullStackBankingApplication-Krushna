@@ -1,0 +1,19 @@
+filebeat.inputs:
+  - type: filestream
+    id: kubernetes-container-logs
+    enabled: true
+
+    prospector.scanner.symlinks: true
+
+    paths:
+      - /var/log/containers/*.log
+
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+
+output.logstash:
+  hosts: ["172.31.19.35:5044"]  #change IP address .. give ELK Private IP
+
+logging.level: info
